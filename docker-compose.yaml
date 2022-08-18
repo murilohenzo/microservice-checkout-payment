@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  db:
+    container_name: payment-db
+    restart: always
+    build: 
+      context: ./
+      dockerfile: Dockerfile.db
+    image: murilohenzo/postgres_db
+    ports:
+      - 5432:5432

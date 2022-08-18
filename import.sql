@@ -1,0 +1,2 @@
+insert into tb_customer (name, age, cpf, balance) values ('John Doe', 22, '12345678901', 100.00)
+insert into tb_payment (billet, amount, payment_date, status, cashback, user_id) values ('826500000011323116990009002022153320476101001040', 300.45, NOW(), 'PENDENTE', 10, '17bec015-988e-4353-a9cd-c88241c99dfb')
