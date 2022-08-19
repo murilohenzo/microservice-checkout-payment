@@ -1,12 +1,17 @@
 version: '3'
 
 services:
-  db:
-    container_name: payment-db
-    restart: always
+  api:
+    container_name: microservice-checkout
     build: 
       context: ./
-      dockerfile: Dockerfile.db
-    image: murilohenzo/postgres_db
+      dockerfile: Dockerfile
+    image: murilohenzo/microservice-checkout
+    entrypoint: dockerize -wait tcp://db:5432 -timeout 30s 
+    depends_on:
+      - db
+    command: yarn dev
     ports:
-      - 5432:5432
+      - 9090:9090
+    links:
+      - db

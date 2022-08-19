@@ -9,7 +9,7 @@ export class Payment {
   @Column({ length: "48", unique: true })
   billet: string;
 
-  @Column()
+  @Column({ type: "float"})
   amount: number;
 
   @CreateDateColumn({ name: "payment_date", type: 'date' })
@@ -18,7 +18,7 @@ export class Payment {
   @Column({ type: 'enum', default: "PENDENTE", enum: ['PENDENTE', 'FINALIZADO'] })
   status: string;
 
-  @Column()
+  @Column({ type: "float"})
   cashback: number;
 
   @ManyToOne(() => Customer)

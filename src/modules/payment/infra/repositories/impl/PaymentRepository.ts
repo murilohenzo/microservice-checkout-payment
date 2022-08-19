@@ -27,9 +27,7 @@ export class PaymentRepository implements IPaymentRepository {
   }
 
   async findByBillet(billet: string): Promise<IPaymentDTO | undefined> {
-    console.log("AQUI - ", billet)
     const payment = await this.paymentRepository.findOne({ billet });
-    console.log(payment)
     if (payment) return payment;
     return {} as IPaymentDTO;
   }
