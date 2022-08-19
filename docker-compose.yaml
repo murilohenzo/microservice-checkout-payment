@@ -1,17 +1,20 @@
 version: '3'
 
 services:
-  api:
+  microservice-checkout:
     container_name: microservice-checkout
     build: 
       context: ./
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
     image: murilohenzo/microservice-checkout
-    entrypoint: dockerize -wait tcp://db:5432 -timeout 30s 
-    depends_on:
-      - db
+    # entrypoint: dockerize -wait tcp://db:5432 -timeout 30s 
     command: yarn dev
+    networks:
+      - microservice-payment_payments
     ports:
       - 9090:9090
-    links:
-      - db
+    environment:
+      DB_HOST: db
+networks:
+  microservice-payment_payments:
+    external: true
