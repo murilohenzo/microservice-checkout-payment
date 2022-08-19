@@ -7,8 +7,8 @@ export class NotificationService {
     let transport = nodemailer.createTransport({
       service: "Hotmail",
       auth: {
-        user: "murilohezo@hotmail.com",
-        pass: "@Mkt86220221"
+        user: process.env.NODEMAILER_USER,
+        pass: process.env.NODEMAILER_PASS
       }
   });
 
