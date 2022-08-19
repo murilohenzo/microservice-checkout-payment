@@ -52,3 +52,4 @@ services:
     ```
 5. Rodar todos os containers com `docker-compose up ou docker-compose up -d`
 6. Outra alternativa fazendo `make build` para buildar os containers.
+7. Observação, existe linhas comentadas dentro do ```Dockerfile``` e ```docker-compose.yaml```, que caso esteja em um SO do Linux podem ser descomentadas
